@@ -1,3 +1,10 @@
+/*                                                  *
+ *       C\C++ library for the Davidson method      *
+ *                                                  *
+ *   Last modified by Aron Vizkeleti on 2021-05-19  *
+ *                                                  *
+ *                                                  */
+
 #include "DavidsonSolver.hpp"
 
 using namespace DavidsonSolvers;
