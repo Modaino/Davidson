@@ -50,21 +50,16 @@ for m in range(k,mmax,k):
             V[:,j] = t[:,j]/np.linalg.norm(t[:,j])
         theta_old = 1 
     elif m > k:
-        theta_old = theta[:eig]
+        theta_old = THETA[:eig]
     V[:,:m],R = np.linalg.qr(V[:,:m])
     T = np.dot(np.conjugate(V[:,:m].T),np.dot(A,V[:,:m]))
     THETA,S = np.linalg.eig(T)
     idx = THETA.argsort()
-    theta = THETA[idx]
-    s = S[:,idx]
     for j in range(0,k):
-        valami = V[:,:m]
-        esvalami = s[:,j]
-        ritz = (V[:,:m]@s[:,j]) 
-        w = (A - theta[j]*I)@(V[:,:m]@s[:,j]) 
-        q = w/(theta[j]-A[j,j])
+        w = (A - THETA[j]*I)@(V[:,:m]@S[:,j]) 
+        q = w/(THETA[j]-A[j,j])
         V[:,(m+j)] = q
-    norm = np.linalg.norm(theta[:eig] - theta_old)
+    norm = np.linalg.norm(THETA[:eig] - theta_old)
     if norm < tol:
         break
 
@@ -72,7 +67,7 @@ end_davidson = time.time()
 
 # End of block Davidson. Print results.
 
-print("davidson = ", theta[:eig],";",
+print("davidson = ", THETA[:eig],";",
     end_davidson - start_davidson, "seconds")
 
 # Begin Numpy diagonalization of A
