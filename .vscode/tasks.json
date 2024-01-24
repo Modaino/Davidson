@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe build active file",
+			"command": "C:/Program Files/MSYS2/mingw64/bin/g++.exe",
+			"args": [
+				"-g",
+				"${file}",
+				"${workspaceFolder}/DavidsonSolver.hpp",
+				"${workspaceFolder}/DavidsonSolver.cpp",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"-larmadillo"
+			],
+			"options": {
+				"cwd": "C:/Program Files/MSYS2/mingw64/bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: \"C:/Program Files/MSYS2/mingw64/bin/g++.exe\""
+		}
+	]
+}
